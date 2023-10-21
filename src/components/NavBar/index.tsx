@@ -17,25 +17,27 @@ import { Link } from "react-router-dom";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/mode-toggle";
+import CollectionHover from "../CollectionHover";
 
 const NavBar = () => {
   const [singIn, setSingIn] = useState(false);
 
   return (
-    <div className="navContainer">
-      <div className="navbar">
+    <div className="w-full grid grid-rows-2">
+      <div className="flex justify-around items-center">
         <Logo width="90" />
         <Link to="/">
           <HomeOutlinedIcon />
         </Link>
         <Link to="/collections">
-          <GridViewOutlinedIcon />
+          <CollectionHover />
         </Link>
         <span className="searchIcon">
           <SearchIcon />
@@ -45,6 +47,9 @@ const NavBar = () => {
             className={"w-[400px]"}
           />
         </span>
+        <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+          <ModeToggle></ModeToggle>
+        </ThemeProvider>
         <Link to="/favorites">
           <FavoriteBorderOutlinedIcon />
         </Link>
@@ -60,7 +65,7 @@ const NavBar = () => {
             </span>
             <span className="account">
               <DropdownMenu>
-                <DropdownMenuTrigger className="flexA">
+                <DropdownMenuTrigger className="flex">
                   <Avatar>
                     <AvatarImage src="https://www.shareicon.net/data/512x512/2016/07/26/802043_man_512x512.png" />
                     <AvatarFallback>Avatar</AvatarFallback>
@@ -71,19 +76,19 @@ const NavBar = () => {
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Link to="/profile" className="full spaceX">
+                    <Link to="/profile" className="w-full space-x-2">
                       <AccountCircleOutlinedIcon />
                       <span>Profile</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link to="/addsold" className="full spaceX">
+                    <Link to="/addsold" className="w-full space-x-2">
                       <PaymentsOutlinedIcon />
                       <span>Add Sold</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link to="/orders" className="full spaceX">
+                    <Link to="/orders" className="w-full space-x-2">
                       <HistoryOutlinedIcon />
                       <span>Orders</span>
                     </Link>
@@ -91,7 +96,7 @@ const NavBar = () => {
 
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={() => setSingIn(false)}>
-                    <Link to="/" className="full spaceX">
+                    <Link to="/" className="w-full space-x-2">
                       <ExitToAppOutlinedIcon />
                       <span>Signout</span>
                     </Link>
@@ -116,3 +121,11 @@ const NavBar = () => {
 };
 
 export default NavBar;
+/* 
+dark mode
+import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/mode-toggle";
+      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+        <ModeToggle></ModeToggle>
+      </ThemeProvider>
+*/

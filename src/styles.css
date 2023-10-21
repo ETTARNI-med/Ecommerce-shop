@@ -6,26 +6,11 @@
   #root {
     @apply w-[80vw] m-auto mt-2;
   }
-  .navContainer {
-    @apply w-full grid grid-rows-2;
-  }
-  .navbar {
-    @apply w-full flex justify-around items-center;
-  }
   .searchIcon {
     @apply relative;
   }
   .searchIcon :first-child {
     @apply absolute top-2 left-3 cursor-pointer;
-  }
-  .flexA {
-    @apply flex;
-  }
-  .spaceX {
-    @apply space-x-3;
-  }
-  .full {
-    @apply w-full;
   }
 }
 

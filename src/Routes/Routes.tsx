@@ -57,11 +57,4 @@ const router = createBrowserRouter([
 
 export default router;
 
-/* 
-dark mode
-import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/mode-toggle";
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-        <ModeToggle></ModeToggle>
-      </ThemeProvider>
-*/
+
