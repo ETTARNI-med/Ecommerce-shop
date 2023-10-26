@@ -3,8 +3,9 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
+// import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import { useState } from "react";
+import { LayoutGrid } from "lucide-react";
 
 const CollectionHover = () => {
   const [showMenCategories, setShowMenCategories] = useState(false);
@@ -14,9 +15,9 @@ const CollectionHover = () => {
   return (
     <HoverCard>
       <HoverCardTrigger>
-        <GridViewOutlinedIcon />
+        <LayoutGrid size={20} />
       </HoverCardTrigger>
-      <HoverCardContent className="w-[80vw] ml-[10vw] h-16 mt-4 flex justify-around items-center">
+      <HoverCardContent className="w-[80vw] ml-[10vw] h-16 mt-8 flex justify-around items-center">
         <HoverCard>
           <HoverCardTrigger
             className={`uppercase hover:underline ${
